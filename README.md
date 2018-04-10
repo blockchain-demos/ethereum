@@ -26,8 +26,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 - **python web3**
 
-![eth001](demo01/images/eth_demo01_python_bindings.jpg)
+```
+from web3 import Web3, HTTPProvider, IPCProvider
+web3 = Web3(HTTPProvider('http://localhost:8545'))
 
+# Retrieve the last block number available from geth RPC
+currentblock = web3.eth.getBlock('latest').number
+```
 
 
 
@@ -35,13 +40,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## demo01 - Reading Historical Data off of the blockchain
 - Connect a Jupyter notebook to the live-net Ethereum Blockchain
 - Retrieve Transaction History for a given block range
+
+## demo02 - Finding insights into Smart Contract Execution Logs
 - Retrieve Smart Contract Execution Event Logs for a given block range
 - Use a smart contract ABI to load the schema for that contract's event logs
-
-
-## demo02 - Consuming live data from new blocks 
-- Create a Web3 Topic Listener for 1 contract's invocations in a new block
-- Create a Kafka Topic outputting ALL Events in a new block
 
 ---
 
