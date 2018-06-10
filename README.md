@@ -17,33 +17,29 @@ ethereum/client-go:v1.8.3 \
 This allows you to view and query events from the blockchain locally via a number of tools/bindings:
 
 - **cUrl**
-```
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}' -X POST http://localhost:8545
 
-{"jsonrpc":"2.0","id":83,"result":"0x51ed3f"}
+  ```
+  curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}' -X POST http://localhost:8545
 
-```
+  {"jsonrpc":"2.0","id":83,"result":"0x51ed3f"}
+
+  ```
 
 - **python web3**
 
-```
-from web3 import Web3, HTTPProvider, IPCProvider
-web3 = Web3(HTTPProvider('http://localhost:8545'))
+  ```
+  from web3 import Web3, HTTPProvider, IPCProvider
+  web3 = Web3(HTTPProvider('http://localhost:8545'))
 
-# Retrieve the last block number available from geth RPC
-currentblock = web3.eth.getBlock('latest').number
-```
+  # Retrieve the last block number available from geth RPC
+  currentblock = web3.eth.getBlock('latest').number
+  ```
 
+# Demos
 
-
-
-## demo01 - Reading Historical Data off of the blockchain
-- Connect a Jupyter notebook to the live-net Ethereum Blockchain
-- Retrieve Transaction History for a given block range
-
-## demo02 - Finding insights into Smart Contract Execution Logs
-- Retrieve Smart Contract Execution Event Logs for a given block range
-- Use a smart contract ABI to load the schema for that contract's event logs
+- [01_Intro](./01_Intro_to_web3/Part1_Intro_To_Web3_Python.ipynb) - Basic Introduction to interacting with ethereum chain from a jupyter notebook
+- [02_Retrieving Smart Contract Logs](./02_Retrieving_and_Parsing_Smart_Contract_Events/Parsing_Smart_Contract_Events.ipynb) - Query and parse transactions to find those which include smart contract events.
+- [03_Streaming Events to Kafka](./Eth_Events_in_Streaming_Apps/Remote_Eth_TransactionLogs_Producer.ipynb) - Retrieve Transaction Logs and produce to a kafka topic
 
 ---
 
@@ -51,7 +47,7 @@ currentblock = web3.eth.getBlock('latest').number
 
 When most people think of "Blockchain", they think about Alice Sending Bob 2 coins, and that transaction being recorded on a public ledger.
 
-On the ethereum chain however, the public ledger holds both currency transfers AND code (Smart Contract) execution logs.
+On the Ethereum chain however, the public ledger holds both currency transfers AND code (Smart Contract) execution logs.
 
 
 
@@ -72,6 +68,3 @@ Here we will use remix.ethereum.org, a free Solidity Web Compiler, to showcase a
 
 
 Even more interesting, once a "smart contract" is deployed to a "contract address", EACH FUNCTION in the smart contract has a unique "MethodID" and "Topic" which can be used to see when that given function belonging to the smart contract was invoked.
-
-
-
