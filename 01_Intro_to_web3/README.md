@@ -34,10 +34,10 @@ pip install -r <git source>/series01-eth_blockchain/demo01/requirements.txt
 
 # 3. Start a notebook
 jupyter notebook --NotebookApp.ip=0.0.0.0 \
---NotebookApp.token='there_is_no_spoon' \
+--NotebookApp.token='yourpass' \
 --NotebookApp.port=8895
 ```
-Connect to the notebook via http://<yourhost>:8895 , using the token you set - `there_is_no_spoon`
+Connect to the notebook via http://<yourhost>:8895 , using the token you set - `yourpass`
 
 
 ### Option 2 - Run the notebook and virtual envs in a docker container
